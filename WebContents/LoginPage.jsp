@@ -7,8 +7,8 @@
 </head>
 <body>
 <center><h1><b>User Login</b></h1></center>
-<form action="">
-<table align ="center" method ="post">
+<form action="validate" method ="post" >
+<table align ="center" >
 	<tr><td align = "left">User Id : </td><td><input type = "text" name = "user" required></td></tr>
 	<tr><td>Password : </td><td><input type = "password" name = "pass" required></td></tr>	
 </table><br>
