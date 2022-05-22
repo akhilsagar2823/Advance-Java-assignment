@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class WebToDb extends HttpServlet {
-	public void doGet(HttpServletRequest req,HttpServletResponse res)throws IOException {
+	public void doPost(HttpServletRequest req,HttpServletResponse res)throws IOException {
 		PrintWriter out = res.getWriter();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -29,7 +29,7 @@ public class WebToDb extends HttpServlet {
 			String userId = (String) req.getParameter("user");
 			String password = (String) req.getParameter("pass");
 			String partyId = firstName.toUpperCase()+lastName.toUpperCase();
-			partyId = partyId.substring(0,4)+zip.substring(0,4);
+			partyId = partyId.substring(0,4)+phone.substring(phone.length()-4,phone.length());
 			
 			
 			String query1 = "INSERT INTO party (partyid, firstName, lastName, address, city, state, country, zip, phone) VALUES ('"+partyId+"','"+ firstName+"','"+ lastName+"','"+address+"','"
@@ -38,16 +38,16 @@ public class WebToDb extends HttpServlet {
 			
 			PreparedStatement prestmt1 = con.prepareStatement(query1);
 			PreparedStatement prestmt2 = con.prepareStatement(query2);
-			boolean inserted = prestmt1.execute();
-			out.write("<html><body>");
-			if(inserted==false) {
-				out.write("Inserted in party");
-			}
+			boolean inserted1= prestmt1.execute();
+			boolean inserted2= prestmt2.execute();			
 			
-			if(inserted==false) {
-				out.write("Inserted in userLogins");
+			if(inserted1 == false && inserted2 == false) {
+				res.setContentType("text/html");
+				out.print("<h1><center> Registered Sucessfully !! </center></h1>");
+				out.print("<h2><center><a href ='LoginPage.jsp'>Go to Login Page</a></center></h2>");
+			} else {
+				
 			}
-			out.write("</body></html>");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace(out);
 		}

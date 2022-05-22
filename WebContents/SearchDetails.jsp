@@ -4,19 +4,21 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<title>Search Details</title>
 <%@page import="java.sql.*" %>
-<link rel="stylesheet" href="homepage.css">
+<link rel="stylesheet" href="search.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>Home</title>
 </head>
 <body>
-<p id="head">Home Page</p>
-<%
+<p id="head">Search Details</p>
+<%	
+	String search = request.getParameter("search");
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/advjava_assignment","root","123456");
-		Statement stmt = con.createStatement();
-		ResultSet rs= stmt.executeQuery("SELECT * FROM party;");
+		PreparedStatement stmt = con.prepareStatement("SELECT * FROM party WHERE FirstName = ?;");
+		stmt.setString(1, search);
+		ResultSet rs= stmt.executeQuery();
 		%>
 		<div class="rectangle" id="tb">
 		<div class="divTable" id = "pd">
@@ -45,23 +47,10 @@
 		//e.printStackTrace(out);
 	}
 %>
-
-	<div class="rectangle" id="sbox">
-		<div class="sb"><form action="SearchDetails.jsp" method="get">
-			<input type="text" placeholder="Search..." id="search" required>
-			<button type="submit" id="ffs"><i class="fa fa-search"></i></button>
+		<div class="rectangle" id="home">
+		<div class="sb"><form action="HomePage.jsp" method="post">
+			<button type="submit" id="ffh">Home <i class="fa fa-home"></i></button>
 		</form></div>
-	</div>
-	<div class="rectangle" id="dbox">
-		<div class="sb"><form action="DeleteDetails.jsp" method="get">
-			<button type="submit" id="del">Delete</button>
-		</form></div>
-	</div>
-
-	<div class="rectangle" id="lbox">
-		<div class="sb"><form action="LoginPage.jsp" method="get">
-			<button type="submit" id="lout">Logout</button>
-		</form></div>
-	</div>
+		</div>
 </body>
 </html>
