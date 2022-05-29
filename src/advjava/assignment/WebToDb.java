@@ -44,7 +44,7 @@ public class WebToDb extends HttpServlet {
 			if(inserted1 == false && inserted2 == false) {
 				res.setContentType("text/html");
 				out.print("<h1><center> Registered Sucessfully !! </center></h1>");
-				out.print("<h2><center><a href ='LoginPage.jsp'>Go to Login Page</a></center></h2>");
+				out.print("<h2><center><a href ='LoginPage.html'>Go to Login Page</a></center></h2>");
 			} else {
 				
 			}

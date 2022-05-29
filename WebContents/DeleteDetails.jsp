@@ -16,6 +16,11 @@
 
 <%
 	try{
+		String userName = (String) session.getAttribute("userName");
+		session.getMaxInactiveInterval();
+		if(userName==null){
+			response.sendRedirect("LoginPage.html");
+		}
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/advjava_assignment","root","123456");
 		Statement stmt = con.createStatement();
 		ResultSet rs= stmt.executeQuery("SELECT * FROM party;");

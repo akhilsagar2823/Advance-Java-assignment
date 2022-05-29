@@ -51,7 +51,6 @@ p#head
         border: 5px;
         height: 25px;
     }
-    
 .rectangle#sbox
 {
 	position: fixed;
@@ -60,7 +59,6 @@ p#head
 	margin-right: 50px;
 	background-color: #4b4949;
 }
-
 .sb
 {
 	margin: 10px 10px 10px 10px;

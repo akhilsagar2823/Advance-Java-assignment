@@ -12,13 +12,18 @@
 <body>
 <p id="head">Search Details</p>
 <%	
-	String search = request.getParameter("search");
 	try {
+		String userName = (String) session.getAttribute("userName");
+		session.getMaxInactiveInterval();
+		if(userName==null){
+			response.sendRedirect("LoginPage.html");
+		}
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/advjava_assignment","root","123456");
-		PreparedStatement stmt = con.prepareStatement("SELECT * FROM party WHERE FirstName = ?;");
-		stmt.setString(1, search);
-		ResultSet rs= stmt.executeQuery();
+		String search = request.getParameter("search");
+		String query = "SELECT * FROM party WHERE FirstName = \""+search+"\";";
+		Statement stmt = con.createStatement();
+		ResultSet rs= stmt.executeQuery(query);
 		%>
 		<div class="rectangle" id="tb">
 		<div class="divTable" id = "pd">
@@ -30,7 +35,7 @@
 				<div class="divCell"><b> City </b></div>
 				<div class="divCell"><b> State </b></div>
 				<div class="divCell"><b> Country </b></div>
-				<div class="divCell"><b> Zip </b></div>
+				<div class="divCell"><b> Pin Code </b></div>
 				<div class="divCell"><b> Phone </b></div>
 			</div><%
 			while(rs.next()){

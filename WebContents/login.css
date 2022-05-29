@@ -21,14 +21,13 @@ p#head
 {
     	margin: 30px;
         display:  table;
-        width: 950px;
+        width: auto;
         background-color:#eee;
         border:1px solid #666666;
         border-spacing:10px;
         vertical-align:text-top;
         font-family: cursive;
 		font-size: large;
-		text-align: center;
 }    
     .divRow
     {
@@ -47,7 +46,7 @@ p#head
 input
 {	
 	position: relative;
-	margin: 5px 0px 5px 0px;
+	margin: 5px ;
     width: auto;
     height: 25px;
     background-color: #eee;

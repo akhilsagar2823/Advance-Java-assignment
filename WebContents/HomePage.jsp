@@ -13,6 +13,11 @@
 <p id="head">Home Page</p>
 <%
 	try {
+		String userName = (String) session.getAttribute("userName");
+		session.getMaxInactiveInterval();
+		if(userName==null){
+			response.sendRedirect("LoginPage.html");
+		}
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/advjava_assignment","root","123456");
 		Statement stmt = con.createStatement();
@@ -48,7 +53,7 @@
 
 	<div class="rectangle" id="sbox">
 		<div class="sb"><form action="SearchDetails.jsp" method="get">
-			<input type="text" placeholder="Search..." id="search" required>
+			<input type="text" placeholder="Search..." name="search" id="search" required>
 			<button type="submit" id="ffs"><i class="fa fa-search"></i></button>
 		</form></div>
 	</div>
@@ -57,9 +62,8 @@
 			<button type="submit" id="del">Delete</button>
 		</form></div>
 	</div>
-
 	<div class="rectangle" id="lbox">
-		<div class="sb"><form action="LoginPage.jsp" method="get">
+		<div class="sb"><form action="logout" method="get">
 			<button type="submit" id="lout">Logout</button>
 		</form></div>
 	</div>

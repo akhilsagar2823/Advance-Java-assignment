@@ -12,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionListener;
 
 
 @WebServlet(asyncSupported = true, urlPatterns = { "/validate" })
@@ -30,19 +32,24 @@ public class Validator extends HttpServlet {
 			Statement st = con.createStatement();
 						
 			ResultSet rs = st.executeQuery("select * from userlogin");
+			HttpSession httpSession = req.getSession(true);
 			
 			while(rs.next()) {
 				if(userLoginID.equals(rs.getString(1))) {
 					if(password.equals(rs.getString(2))) {
 						invalid = false;
+					
+						httpSession.setAttribute("userName", userLoginID);
+						httpSession.setMaxInactiveInterval(300);
 						res.sendRedirect("HomePage.jsp");
 					}
 				}
 			}
 			if(invalid==true) {
+//				res.sendRedirect("LoginPage.html");
 				res.setContentType("text/html");
 				out.print("<h1><center> Invalid UserId or Password !! </center></h1>");
-				out.print("<h2><center><a href ='LoginPage.jsp'>Back to Login Page</a></center></h2>");
+				out.print("<h2><center><a href ='LoginPage.html'>Back to Login Page</a></center></h2>");
 			}
 			
 		}catch(Exception e) {	

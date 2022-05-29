@@ -5,7 +5,6 @@
 <head>
 <meta charset="ISO-8859-1">
 <%@page import="java.sql.*" %>
-<link rel="stylesheet" href="delsel.css">
 <title>Confirmation</title>
 </head>
 <body>
