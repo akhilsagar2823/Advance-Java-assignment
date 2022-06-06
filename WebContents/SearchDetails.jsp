@@ -20,8 +20,9 @@
 		}
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/advjava_assignment","root","123456");
-		String search = request.getParameter("search");
-		String query = "SELECT * FROM party WHERE FirstName = \""+search+"\";";
+		String search = request.getParameter("search")+"%";
+//		out.print(search);
+		String query = "SELECT * FROM party WHERE FirstName LIKE '"+search+"';";
 		Statement stmt = con.createStatement();
 		ResultSet rs= stmt.executeQuery(query);
 		%>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <%@page import="java.sql.*" %>
-<link rel="stylesheet" href="homepage.css">
+<link rel="stylesheet" href="homep.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Home</title>
 </head>
@@ -33,7 +33,7 @@
 				<div class="divCell"><b> City </b></div>
 				<div class="divCell"><b> State </b></div>
 				<div class="divCell"><b> Country </b></div>
-				<div class="divCell"><b> Zip </b></div>
+				<div class="divCell"><b> Pin Code </b></div>
 				<div class="divCell"><b> Phone </b></div>
 			</div><%
 			while(rs.next()){
@@ -53,18 +53,23 @@
 
 	<div class="rectangle" id="sbox">
 		<div class="sb"><form action="SearchDetails.jsp" method="get">
-			<input type="text" placeholder="Search..." name="search" id="search" required>
+			<input type="text" placeholder="search by name..." name="search" id="search" required>
 			<button type="submit" id="ffs"><i class="fa fa-search"></i></button>
 		</form></div>
 	</div>
 	<div class="rectangle" id="dbox">
 		<div class="sb"><form action="DeleteDetails.jsp" method="get">
-			<button type="submit" id="del">Delete</button>
+			<button type="submit" id="sub">Delete</button>
 		</form></div>
 	</div>
-	<div class="rectangle" id="lbox">
+	<div class="rectangle" id="ubox">
+		<div class="sb"><form action="UpdateDetails.jsp" method="get">
+			<button type="submit" id="sub">Update</button>
+		</form></div>
+	</div>
+		<div class="rectangle" id="lbox">
 		<div class="sb"><form action="logout" method="get">
-			<button type="submit" id="lout">Logout</button>
+			<button type="submit" id="sub">Logout</button>
 		</form></div>
 	</div>
 </body>
