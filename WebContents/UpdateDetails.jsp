@@ -1,35 +1,14 @@
+<%@page import="advjava.assignment.ConnectonBuilder"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="updateD.css">
-<style>.rectangle#sbox
-{
-	position: fixed;
-	margin-left: 1250px;
-	margin-top: 130px;
-	margin-right: 50px;
-	background-color: #4b4949;
-}
-.rectangle#ubox
-{
-	position: fixed;
-	margin-left: 1250px;
-	margin-top: 250px;
-	margin-right: 50px;
-	background-color: #4b4949;
-}button#sub
-{
-	background-color: #ccc;
-	border: 1px solid black;
-	width: 300px;
-	height: 45px;
-	font-size: x-large;
-	font-family: cursive;
-}
-</style>
+<link rel="stylesheet" href="css/updateD.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style></style>
 <title>Update</title>
 </head>
 <body>
@@ -41,12 +20,15 @@
 		if(userName==null){
 			response.sendRedirect("LoginPage.html");
 		}
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/advjava_assignment","root","123456");
+		Connection con = ConnectonBuilder.getConnection();
 		Statement stmt = con.createStatement();
-		ResultSet rs= stmt.executeQuery("SELECT * FROM party,userlogin where userlogin.partyId = (SELECT partyId FROM userlogin WHERE userId = '"
-										+userName+"') AND party.partyId = userlogin.partyId;");
+		ResultSet rs= stmt.executeQuery("SELECT * FROM party,userlogin where party.partyId = '"
+										+request.getParameter("updateId")+"'AND party.partyId = userlogin.partyId;");
 		rs.next();
+		
+		String partyId = request.getParameter("updateId");
+		session.setAttribute("partyId",partyId );	
+		
 		%>
 		<div class="rectangle" id="tb">
 		<div class="divTable" id = "pd">
@@ -90,17 +72,20 @@
 				<div class="divCell"><b> User Id </b></div>
 				<div class="divCell"> <%=rs.getString(10)%> </div>
 			</div>
+			<div class="divRow">
+				<div class="divCell"><b> Email Id </b></div>
+				<div class="divCell"> <%=rs.getString(11)%> </div>
+			</div>
 				
 		</div></div><%
-	}catch(ClassNotFoundException | SQLException  e) {
-		//e.printStackTrace(out);
+	}catch(SQLException  e) {
 	}
 %>
-	<form action="/update" method="get">
+	<form action="update" method="get">
 	<div class="rectangle" id="sbox">
 		<div class="sb">
 		<label for="details">Select :</label><br>
-		<select name="details" id="details">
+		<select name="column" id="details" >
 			<option value="firstName">First Name</option>
 			<option value="lastName">Last Name</option>
 			<option value="address">Address</option>
@@ -110,7 +95,15 @@
 			<option value="zip">Pin Code</option>
 			<option value="phone">Phone</option>
 			<option value="userId">User Id</option>
+			<option value="emailId">Email Id</option>
+			
 		</select>
+		</div>
+	</div>
+
+	<div class="rectangle" id="dbox">
+		<div class="sb">
+			<input type="text" name="newValue" placeholder="Enter new value">
 		</div>
 	</div>
 	<div class="rectangle" id="ubox">
@@ -119,5 +112,11 @@
 		</div>
 	</div>
 	</form>
+	<div class="rectangle" id="home">
+		<div class="sb"><form action="HomePage.jsp" method="post">
+			<button type="submit" id="ffh">Home <i class="fa fa-home"></i></button>
+		</form></div>
+		</div>
+	
 </body>
 </html>

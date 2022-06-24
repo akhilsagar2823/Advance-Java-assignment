@@ -4,89 +4,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Registration Page</title>
-<link rel="stylesheet" href="regpage.css">
+<link rel="stylesheet" href="css/regpage.css">
 </head> 
-<style>
-body
-{
-	background-color: #e3d3cc;
-}
-p#head
-{
-	text-align: center;
-	font-family: cursive;
-	font-size: xxx-large;
-} 
-.rectangle
-{
-	position: absolute;	
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	background-color: #4b4949;
-}
-.divTable
-{
-    	margin: 30px;
-        display:  table;
-        width: 950px;
-        background-color:#eee;
-        border:1px solid #666666;
-        border-spacing:10px;
-        vertical-align:text-top;
-        font-family: cursive;
-		font-size: large;
-		text-align: center;
-}    
-    .divRow
-    {
-       display:table-row;
-       width:auto;
-	   position: relative;
-    }
-
-    .divCell
-    {	
-        display:table-cell;
-        background-color:#ccc;
-        border: 5px;
-        height: 25px;
-    }
-input
-{	
-	position: relative;
-	margin: 5px 0px 5px 0px;
-    width: auto;
-    height: 25px;
-    background-color: #eee;
-    font-size: larger;
-    font-family: cursive;
-}
-.divTable#submit
-{
-    	margin: 30px;
-        display:  table;
-		margin-left: auto;
-		margin-right: auto;
-        width: auto;
-        background-color:#eee;
-        border:1px solid #666666;
-        border-spacing:10px;
-        vertical-align: middle;
-        font-family: cursive;
-		text-align: center;
-}
-button
-{
-	background-color: #ccc;
-	border: 1px solid black;
-	width: 250px;
-	height: auto;
-	font-size: larger;
-	font-family: cursive;
-
-}
-</style>
 <body>
 <p id="head">Register New User</p>
 <div class="rectangle">
@@ -94,35 +13,41 @@ button
 		<div class="divTable">
 				<div class="divRow">
 					<div class = "divCell"><b> First Name : </b></div>
-					<div class = "divCell"><input type = "text" name = "first" required></div>
+					<div class = "divCell"><input type = "text" name = "firstName" required></div>
 					<div class = "divCell"><b> Last Name : </b></div>
-					<div class = "divCell"><input type = "text" name = "last" required></div>
+					<div class = "divCell"><input type = "text" name = "lastName" required></div>
 				</div>
 				<div class="divRow">
-					<div class = "divCell"><b> Country  : </b></div>
-					<div class = "divCell"><input type = "text" name = "country"></div>
-					<div class = "divCell"><b> State : </b></div>
-					<div class = "divCell"><input type = "text" name = "state"></div>
-				</div>
-				<div class="divRow">
+					<div class = "divCell"><b> Address : </b></div>
+					<div class = "divCell"><input type = "text" name  = "address"></div>
 					<div class = "divCell"><b> City : </b></div>
 					<div class = "divCell"><input type = "text" name = "city"></div>
-					<div class = "divCell"><b> Address : </b></div>
-					<div class = "divCell"><input type = "text" name  = "add"></div>
+				</div>
+				<div class="divRow">
+					<div class = "divCell"><b> State : </b></div>
+					<div class = "divCell"><input type = "text" name = "state"></div>
+					<div class = "divCell"><b> Country  : </b></div>
+					<div class = "divCell"><input type = "text" name = "country"></div>
 				</div>
 				<div class="divRow">
 					<div class = "divCell"><b> Pincode : </b></div>
-					<div class = "divCell"><input type = "number" name = "zip" required></div>
+					<div class = "divCell"><input type = "number" name = "zip" ></div>
 					<div class = "divCell"><b> Phone : </b></div>
-					<div class = "divCell"><input type = "number" name = "phn"></div>
+					<div class = "divCell"><input type = "number" name = "phoneNo"></div>
 				</div>
 		</div>
 		<div class="divTable">
 			<div class="divRow">
+				<div class = "divCell" ><b>Email Id : </b></div>
+				<div class = "divCell"><input type ="email" name = "emailId" id="eId" required></div>
+			</div>
+		</div>
+		<div class="divTable">
+			<div class="divRow">
 				<div class = "divCell"><b>User Id : </b></div>
-				<div class = "divCell"><input type = "text" name = "user" required></div>
+				<div class = "divCell"><input type = "text" name = "userId" required></div>
 				<div class = "divCell"><b>Password : </b></div>
-				<div class = "divCell"><input type = "password" name = "pass" required></div>
+				<div class = "divCell"><input type = "password" name = "password" required></div>
 			</div>
 		</div>
 		<div class="divTable" id="submit">

@@ -1,0 +1,137 @@
+@charset "ISO-8859-1";
+body
+{
+	background-color: #e3d3cc;
+}
+p#head
+{
+	text-align: center;
+	font-family: cursive;
+	font-size: xxx-large;
+}
+.rectangle#tb
+{
+	margin-left: 9%;
+	background-color: #4b4949;
+	position: absolute;	
+	width: auto;
+	height: auto;
+}
+.divTable#pd
+{
+    	margin: 30px;
+        display:  table;
+        width:auto;
+        height: auto;
+        background-color:#eee;
+        border:1px solid #666666;
+        border-spacing:5px;
+        font-family: cursive;
+        font-size: x-large; 
+}
+	.divRow
+    {
+       display:table-row;
+       width:auto;
+    }
+
+    .divCell
+    {
+        display:table-cell;
+        background-color:#ccc;
+        border: 5px;
+        height: 25px;
+        padding: 5px 10Px; 
+    }
+
+
+.sb
+{
+	margin: 10px 10px 10px 10px;
+
+}
+
+button#ffh
+{
+	background-color: #ccc;
+	border: 1px solid black;
+	width: auto;
+	height: 45px;
+	font-size: xx-large;
+}
+
+.rectangle#home
+{
+	position: absolute;
+	margin-left: 69%;
+	margin-top: 2%;
+	margin-right: 9%;
+	background-color: #4b4949;
+}
+.rectangle#sbox
+{
+	position: absolute;
+	margin-left: 69%;
+	margin-top: 9%;
+	margin-right: 9%;
+	background-color: #4b4949;
+}
+.rectangle#dbox
+{
+	position: absolute;
+	margin-left: 69%;
+	position: absolute;
+	margin-top: 18%;
+	margin-right: 9%;
+	background-color: #4b4949;
+}
+.rectangle#ubox
+{
+	position: absolute;
+	margin-left: 69%;
+	position: absolute;
+	margin-top: 25%;
+	margin-right: 9%;
+	background-color: #4b4949;
+}
+input
+{	
+    width: 300px;
+    height: 40px;
+    background-color: #eee;
+    font-size: larger;
+    padding-left: 10px;
+    font-family: cursive;
+}
+select
+{	
+    margin-right: 5px;
+    width: 310px;
+    height: 40px;
+    background-color: #eee;
+    font-size: larger;
+    padding-left: 10px;
+    font-family: cursive;
+}
+label{	
+    margin-right: 5px;
+    width: 250px;
+    height: 40px;
+    font-size: x-large;
+    padding: 10px;
+    color: #eee;
+    font-family: cursive;
+}
+	
+
+button#sub
+{
+	background-color: #ccc;
+	border: 1px solid black;
+	width: 320px;
+	height: 45px;
+	font-size: x-large;
+	font-family: cursive;
+}
+
+

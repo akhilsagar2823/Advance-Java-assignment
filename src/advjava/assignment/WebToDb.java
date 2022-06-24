@@ -7,48 +7,77 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class WebToDb extends HttpServlet {
-	public void doPost(HttpServletRequest req,HttpServletResponse res)throws IOException {
+	public void doPost(HttpServletRequest req,HttpServletResponse res)throws IOException, ServletException {
 		PrintWriter out = res.getWriter();
+		Connection con = ConnectonBuilder.getConnection();
+		PreparedStatement prestmt1,prestmt2;
+		String partyId = PartyIdGenerator.getPartyId();	
+		req.setAttribute("partyId", partyId);
+		RequestDispatcher rd;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/advjava_assignment","root","123456");
-			String firstName = (String) req.getParameter("first");
-			String lastName = (String) req.getParameter("last");
-			String address = (String) req.getParameter("add");
+			boolean success = false;
+			String firstName = (String) req.getParameter("firstName");
+			String lastName = (String) req.getParameter("lastName");
+			String address = (String) req.getParameter("address");
 			String city = (String)  req.getParameter("city");
 			String state = (String) req.getParameter("state");
 			String country = (String) req.getParameter("country");
 			String zip = req.getParameter("zip");
-			String phone =  req.getParameter("phn");
-			String userId = (String) req.getParameter("user");
-			String password = (String) req.getParameter("pass");
-			String partyId = firstName.toUpperCase()+lastName.toUpperCase();
-			partyId = partyId.substring(0,4)+phone.substring(phone.length()-4,phone.length());
-			
-			
+			String phone =  req.getParameter("phoneNo");
+			String emailId = req.getParameter("emailId");
+			String userId = (String) req.getParameter("userId");
+			String password = (String) req.getParameter("password");
+			password = PasswordEncryptor.encrypt(password);
 			String query1 = "INSERT INTO party (partyid, firstName, lastName, address, city, state, country, zip, phone) VALUES ('"+partyId+"','"+ firstName+"','"+ lastName+"','"+address+"','"
 					+city+"','"+state+"','"+country+"','"+zip+"','"+phone+"')";
-			String query2 = "INSERT INTO userlogin (userId, password, partyId) VALUES ('"+userId+"','"+password+"','"+partyId+"')";
+			String query2 = "INSERT INTO userlogin (userId, emailId, password, partyId) VALUES ('"+userId+"','"+emailId+"','"+password+"','"+partyId+"')";
 			
-			PreparedStatement prestmt1 = con.prepareStatement(query1);
-			PreparedStatement prestmt2 = con.prepareStatement(query2);
-			boolean inserted1= prestmt1.execute();
-			boolean inserted2= prestmt2.execute();			
-			
-			if(inserted1 == false && inserted2 == false) {
-				res.setContentType("text/html");
-				out.print("<h1><center> Registered Sucessfully !! </center></h1>");
-				out.print("<h2><center><a href ='LoginPage.html'>Go to Login Page</a></center></h2>");
-			} else {
+			prestmt1 = con.prepareStatement(query1);
+			prestmt2 = con.prepareStatement(query2);
+			if(prestmt1.execute()) {
 				
+			}else {
+				if(prestmt2.execute()) {
+				}else {
+					out.println("<script type=\"text/javascript\">");
+		            out.println("alert('Regestration successfull !!');");
+		            out.println("</script>");
+		    		req.setAttribute("emailId", emailId);
+		    		req.setAttribute("name", firstName+" "+lastName);
+		    		req.setAttribute("userId", userId);
+		            rd = req.getRequestDispatcher("sendmail");
+		            rd.include(req, res);			            
+				}
 			}
-		} catch (ClassNotFoundException | SQLException e) {
+
+		} catch (SQLException  e) {
+			try {
+				prestmt1 = con.prepareStatement("DELETE FROM party WHERE partyId = '"+partyId+"';");
+				prestmt1.execute();
+				prestmt2 = con.prepareStatement("DELETE FROM userLogin WHERE partyId = '"+partyId+"';");
+				prestmt2.execute();
+				out.println("<script type=\"text/javascript\">");
+	            out.println("alert('Error Occured, Try Again !!');");
+	            out.println("</script>");
+	            rd = req.getRequestDispatcher("RegistrationPage.html");
+	            rd.include(req, res);	
+			} catch (SQLException e1) {
+				out.println("<script type=\"text/javascript\">");
+	            out.println("alert('Error Occured, Try Again !!');");
+	            out.println("</script>");
+	            rd = req.getRequestDispatcher("RegistrationPage.html");
+	            rd.include(req, res);			
+				e1.printStackTrace(out);
+			}
+
 			e.printStackTrace(out);
 		}
 	}

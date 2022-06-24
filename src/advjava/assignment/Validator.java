@@ -7,21 +7,21 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionListener;
 
 
-@WebServlet(asyncSupported = true, urlPatterns = { "/validate" })
+@WebServlet(asyncSupported = true, urlPatterns = { "/LoginPage" })
 public class Validator extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		String userLoginID = req.getParameter("user");
-		String password = req.getParameter("pass");
-
+		String userLoginID = req.getParameter("userName");
+		String password = req.getParameter("password");
+		password = PasswordEncryptor.encrypt(password);
 		boolean invalid = true;
 		
 		PrintWriter out = res.getWriter();
@@ -33,25 +33,30 @@ public class Validator extends HttpServlet {
 						
 			ResultSet rs = st.executeQuery("select * from userlogin");
 			HttpSession httpSession = req.getSession(true);
-			
+			RequestDispatcher rd;
 			while(rs.next()) {
-				if(userLoginID.equals(rs.getString(1))) {
-					if(password.equals(rs.getString(2))) {
+				if(userLoginID.equals(rs.getString(1)) || userLoginID.equals(rs.getString(2))) {
+					if(password.equals(rs.getString(3))) {
 						invalid = false;
 					
 						httpSession.setAttribute("userName", userLoginID);
 						httpSession.setMaxInactiveInterval(300);
-						res.sendRedirect("HomePage.jsp");
+			            out.println("<script type=\"text/javascript\">");
+			            out.println("alert('Login successfull');");
+			            out.println("</script>");
+			            rd = req.getRequestDispatcher("HomePage.jsp");
+			            rd.include(req, res);
 					}
 				}
 			}
 			if(invalid==true) {
-//				res.sendRedirect("LoginPage.html");
-				res.setContentType("text/html");
-				out.print("<h1><center> Invalid UserId or Password !! </center></h1>");
-				out.print("<h2><center><a href ='LoginPage.html'>Back to Login Page</a></center></h2>");
+	            out.println("<script type=\"text/javascript\">");
+	            out.println("alert('User or password incorrect please try again!');");
+	            out.println("</script>");
+	            rd = req.getRequestDispatcher("LoginPage.html");
+	            rd.include(req, res);
 			}
-			
+				
 		}catch(Exception e) {	
 			e.printStackTrace(out);
 		}

@@ -44,6 +44,7 @@ p#head
         border: 5px;
         height: 25px;
     }
+
 input
 {	
 	position: relative;
@@ -54,6 +55,11 @@ input
     font-size: larger;
     font-family: cursive;
 }
+input#eId
+{	
+    width: 90%;
+}
+
 .divTable#submit
 {
     	margin: 30px;
