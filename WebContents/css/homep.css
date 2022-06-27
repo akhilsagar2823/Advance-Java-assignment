@@ -7,29 +7,31 @@ p#head
 {
 	text-align: center;
 	font-family: cursive;
-	font-size: xxx-large;
+	font-size: 400%;
+	margin-bottom: 2%;
 }
 .rectangle#tb
 {
 	margin-left: 3%;
 	margin-right: 3%;
-	margin-top: 8%;
+	margin-top: 10%;
 	background-color: #4b4949;
 	position: absolute;	
 	width: 93%;
-	height: auto;
-	max-height: 500px;
+	max-height: 90%;
 	overflow-y: scroll;
+
 }
 .divTable#pd
 {
-    	margin: 2%;
+    	margin: 1%;
         display:  table;
-        width: 95%;
+        width: 98%;
         background-color:#eee;
         border:1px solid #666666;
         border-spacing:5px;
         vertical-align: middle;
+        font-size: 90%;
         font-family: cursive;
 }
 	
@@ -50,7 +52,6 @@ p#head
         display:table-cell;
         background-color:#ccc;
         border: 5px;
-        height: 25px;
         padding: 0px 3px;
     }
 .rectangle#sbox
@@ -58,31 +59,27 @@ p#head
 	position: absolute;
 	margin-left: 3%;
 	margin-right: auto;
+	width: 40%;
+	height: auto;
 	background-color: #4b4949;
 }
 .sb
 {
-	margin: 10px 10px 10px 10px;
+	margin: 3%;
 }
 input#search
 {	
 	position: relative;
-    margin-right: 5px;
-    width: 250px;
-    height: 40px;
+    width: 84%;
+    margin-right:3%;
     background-color: #eee;
-    font-size: larger;
-    padding-left: 10px;
+    font-size: 120%;
+    padding-left: 2%;
     font-family: cursive;
 }
-button#ffs
-{
-	background-color: #ccc;
-	border: 1px solid black;
-	float: right;
+input#del{
 	width: 30px;
-	height: 45px;
-	font-size: larger;
+	height: 15px;   
 }
 
 .rectangle#dbox
@@ -90,6 +87,8 @@ button#ffs
 	position: absolute;
 	margin-left: 54%;
 	margin-right: 27%;
+	width: 20%;
+	height:auto;
 	background-color: #4b4949;
 }
 .button#upd
@@ -97,37 +96,52 @@ button#ffs
 	background-color: #ccc;
 	border: 1px solid black;
 	font-size: medium;
+	width: auto;
+	height: 90%;
 	font-family: cursive;
 }
 .rectangle#lbox
 {
-	position: fixed;
+	position: absolute;
 	margin-left: 76%;
 	margin-right: 3%;
+	width: 20%;
+	height:auto;
 	background-color: #4b4949;
 }
 button#sub
 {
 	background-color: #ccc;
 	border: 1px solid black;
-	width: 300px;
-	height: 45px;
-	font-size: x-large;
+	width: 99%;
+	height: 90%;
+	font-size: 150%;
 	font-family: cursive;
 }
+button#ffs
+{
+	background-color: #ccc;
+	border: 1px solid black;
+	width: 10%;
+	height: 90%;
+	font-size: 120%;
+}
+
 .rectangle#home
 {
 	position: absolute;
 	margin-left: 3%;
-	margin-right: auto;
-	background-color: #4b4949;
+	width:15%;
+	height:auto;
+ 	background-color: #4b4949;
 }
 button#ffh
 {
 	background-color: #ccc;
 	border: 1px solid black;
-	width: auto;
-	height: 45px;
-	font-size: xx-large;
+	width: 99%;
+	height: 80%;
+	font-size: 150%;
+	font-family: cursive;
 }
 

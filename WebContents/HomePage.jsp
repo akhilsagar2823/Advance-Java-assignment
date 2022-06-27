@@ -1,13 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="advjava.assignment.*"%>
+<%@page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<%@page import="java.sql.*" %>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<title>HomePage</title>
 <link rel="stylesheet" href="css/homep.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<title>Home</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<style type="text/css">
+	body
+	{
+		background-color: #e3d3cc;
+	}
+</style>
 </head>
 <body>
 <p id="head">Home Page</p>
@@ -33,8 +46,8 @@
 		<div class="divTable" id = "pd">
 			<div class="headRow">
 				<div class="divCell"><b> PartyId </b></div>
-				<div class="divCell"><b> FirstName </b></div>
-				<div class="divCell"><b> LastName </b></div>				
+				<div class="divCell"><b> First Name </b></div>
+				<div class="divCell"><b> Last Name </b></div>				
 				<div class="divCell"><b> Address </b></div>
 				<div class="divCell"><b> City </b></div>
 				<div class="divCell"><b> State </b></div>
@@ -55,10 +68,10 @@
 						%></div><%
 					} 
 					%>
-					<div class="divCell"><input type="checkbox" name="<%= rs.getString(1) %>"></div>
-					<div class="divCell"><a href = "UpdateDetails.jsp?updateId=<%= rs.getString(1) %>"><button type="button" id = "upd">
+					<div class="divCell" ><center><input type="checkbox" name="<%= rs.getString(1) %>" id="del"></center></div>
+					<div class="divCell"><center><a href = "UpdateDetails.jsp?updateId=<%= rs.getString(1) %>"><button type="button" id = "upd">
 						Update
-					</button></a></div>
+					</button></a></center></div>
 					 <%
 
 				%></div><%
@@ -71,7 +84,7 @@
 			</form>
 	<div class="rectangle" id="sbox">
 		<div class="sb"><form action="SearchDetails.jsp" method="get">
-			<input type="text" placeholder="search by name..." name="search" id="search" required>
+			<input type="text" placeholder="Search..." name="search" id="search" required>
 			<button type="submit" id="ffs"><i class="fa fa-search"></i></button>
 		</form></div>
 	</div>

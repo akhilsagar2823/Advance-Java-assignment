@@ -15,8 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-@WebServlet(asyncSupported = true, urlPatterns = { "/LoginPage" })
+@WebServlet(asyncSupported = true, urlPatterns = { "/HomePage" })
 public class Validator extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String userLoginID = req.getParameter("userName");
@@ -53,7 +52,7 @@ public class Validator extends HttpServlet {
 	            out.println("<script type=\"text/javascript\">");
 	            out.println("alert('User or password incorrect please try again!');");
 	            out.println("</script>");
-	            rd = req.getRequestDispatcher("LoginPage.html");
+	            rd = req.getRequestDispatcher("LoginPage.html");	            
 	            rd.include(req, res);
 			}
 				
