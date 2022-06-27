@@ -1,0 +1,145 @@
+@charset "ISO-8859-1";
+body
+{
+	background-color: #e3d3cc;
+}
+p#head
+{
+	text-align: center;
+	font-family: cursive;
+	font-size: 400%;
+}
+.rectangle#tb
+{
+	position: absolute;
+	margin-top: 5%;
+	margin-left: 9%;
+	background-color: #4b4949;
+	position: absolute;	
+	width: 40%;
+	height: auto;
+	overflow-y: scroll;
+}
+.divTable#pd
+{
+    	margin: 3%;
+        display:  table;
+        width: 94%;
+        height: auto;
+        background-color:#eee;
+        border:1px solid #666666;
+        border-spacing:5px;
+        font-family: cursive;
+        font-size: 120%; 
+}
+	.divRow
+    {
+       display:table-row;
+       width:auto;
+    }
+
+    .divCell
+    {
+        display:table-cell;
+        background-color:#ccc;
+        border: 5px;
+        height: 25px;
+        padding: 5px 10Px; 
+    }
+
+
+.sb
+{
+	margin: 3%;
+
+}
+
+button#ffh
+{
+	background-color: #ccc;
+	border: 1px solid black;
+	width: 99%;
+	font-size: 150%;
+	font-family: cursive;
+}
+
+.rectangle#home
+{
+	position: absolute;
+	margin-left: 69%;
+	margin-top: 7%;
+	margin-right: 9%;
+	width: 20%;
+	background-color: #4b4949;
+}
+.rectangle#sbox
+{
+	position: absolute;
+	margin-left: 69%;
+	margin-top: 14%;
+	margin-right: 9%;
+	width: 20%;
+	background-color: #4b4949;
+}
+.rectangle#dbox
+{
+	position: absolute;
+	margin-left: 69%;
+	width: 20%;
+	height: auto;
+	position: absolute;
+	margin-top: 23%;
+	margin-right: 9%;
+	background-color: #4b4949;
+}
+.rectangle#ubox
+{
+	position: absolute;
+	margin-left: 69%;
+	position: absolute;
+	width: 20%;
+	margin-top: 30%;
+	margin-right: 9%;
+	background-color: #4b4949;
+}
+input
+{	
+    width: 99%;
+    height: 98%;
+    background-color: #eee;
+    font-size: 120%;
+    padding-left: 10px;
+    font-family: cursive;
+}
+select
+{	
+    margin-right: 5px;
+    width: 99%;
+    height: 20%;
+    background-color: #eee;
+    font-size: 120%;
+    padding-left: 10px;
+    font-family: cursive;
+}
+label{	
+    margin-right: 5px;
+    width: 99%;
+    height: 40%;
+    font-size: 150%;
+    padding: 2%;
+    color: #eee;
+    font-family: cursive;
+}
+	
+
+button#sub
+{
+	background-color: #ccc;
+	border: 1px solid black;
+	width: 99%;
+	height:	80%;
+	font-size: 150%;
+	font-family: cursive;
+}
+
+

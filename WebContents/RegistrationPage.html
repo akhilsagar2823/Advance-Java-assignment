@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Registration Page</title>
+<link rel="stylesheet" href="css/regpage.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+		integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<style type="text/css">
+	body
+	{
+		background-color: #e3d3cc;
+	}
+</style>
+</head> 
+<body>
+<p id="head">Register New User</p>
+<div class="rectangle">
+	<form action = "register" method="post">
+		<div class="divTable">
+				<div class="divRow">
+					<div class = "divCell"><b> First Name : </b></div>
+					<div class = "divCell"><input type = "text" name = "firstName" required></div>
+					<div class = "divCell"><b> Last Name : </b></div>
+					<div class = "divCell"><input type = "text" name = "lastName" required></div>
+				</div>
+				<div class="divRow">
+					<div class = "divCell"><b> Address : </b></div>
+					<div class = "divCell"><input type = "text" name  = "address"></div>
+					<div class = "divCell"><b> City : </b></div>
+					<div class = "divCell"><input type = "text" name = "city"></div>
+				</div>
+				<div class="divRow">
+					<div class = "divCell"><b> State : </b></div>
+					<div class = "divCell"><input type = "text" name = "state"></div>
+					<div class = "divCell"><b> Country  : </b></div>
+					<div class = "divCell"><input type = "text" name = "country"></div>
+				</div>
+				<div class="divRow">
+					<div class = "divCell"><b> Pincode : </b></div>
+					<div class = "divCell"><input type = "number" name = "zip" ></div>
+					<div class = "divCell"><b> Phone : </b></div>
+					<div class = "divCell"><input type = "number" name = "phoneNo"></div>
+				</div>
+		</div>
+		<div class="divTable">
+			<div class="divRow">
+				<div class = "divCell" ><b>Email Id : </b></div>
+				<div class = "divCell"><input type ="email" name = "emailId" id="eId" required></div>
+			</div>
+		</div>
+		<div class="divTable">
+			<div class="divRow">
+				<div class = "divCell"><b>User Id : </b></div>
+				<div class = "divCell"><input type = "text" name = "userId" required></div>
+				<div class = "divCell"><b>Password : </b></div>
+				<div class = "divCell"><input type = "password" name = "password" required></div>
+			</div>
+		</div>
+		<div class="divTable" id="submit">
+			<div class="divRow"><div class = "divCell"><b><a href="LoginPage.html">Already registered , Login</a></b></div></div>
+			<div class="divRow"><div class = "divCell"><button type="submit">Sign Up</button></div></div>
+		</div>
+	</form>
+</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+	</script>
+</body>
+</html>

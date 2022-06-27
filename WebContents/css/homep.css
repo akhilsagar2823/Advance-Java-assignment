@@ -1,0 +1,147 @@
+@charset "ISO-8859-1";
+body
+{
+	background-color: #e3d3cc;
+}
+p#head
+{
+	text-align: center;
+	font-family: cursive;
+	font-size: 400%;
+	margin-bottom: 2%;
+}
+.rectangle#tb
+{
+	margin-left: 3%;
+	margin-right: 3%;
+	margin-top: 10%;
+	background-color: #4b4949;
+	position: absolute;	
+	width: 93%;
+	max-height: 90%;
+	overflow-y: scroll;
+
+}
+.divTable#pd
+{
+    	margin: 1%;
+        display:  table;
+        width: 98%;
+        background-color:#eee;
+        border:1px solid #666666;
+        border-spacing:5px;
+        vertical-align: middle;
+        font-size: 90%;
+        font-family: cursive;
+}
+	
+	.headRow
+    {
+       display:table-row;
+       text-align: center;
+    }
+    
+    .divRow
+    {
+       display:table-row;
+       width:auto;
+    }
+
+    .divCell
+    {
+        display:table-cell;
+        background-color:#ccc;
+        border: 5px;
+        padding: 0px 3px;
+    }
+.rectangle#sbox
+{
+	position: absolute;
+	margin-left: 3%;
+	margin-right: auto;
+	width: 40%;
+	height: auto;
+	background-color: #4b4949;
+}
+.sb
+{
+	margin: 3%;
+}
+input#search
+{	
+	position: relative;
+    width: 84%;
+    margin-right:3%;
+    background-color: #eee;
+    font-size: 120%;
+    padding-left: 2%;
+    font-family: cursive;
+}
+input#del{
+	width: 30px;
+	height: 15px;   
+}
+
+.rectangle#dbox
+{
+	position: absolute;
+	margin-left: 54%;
+	margin-right: 27%;
+	width: 20%;
+	height:auto;
+	background-color: #4b4949;
+}
+.button#upd
+{
+	background-color: #ccc;
+	border: 1px solid black;
+	font-size: medium;
+	width: auto;
+	height: 90%;
+	font-family: cursive;
+}
+.rectangle#lbox
+{
+	position: absolute;
+	margin-left: 76%;
+	margin-right: 3%;
+	width: 20%;
+	height:auto;
+	background-color: #4b4949;
+}
+button#sub
+{
+	background-color: #ccc;
+	border: 1px solid black;
+	width: 99%;
+	height: 90%;
+	font-size: 150%;
+	font-family: cursive;
+}
+button#ffs
+{
+	background-color: #ccc;
+	border: 1px solid black;
+	width: 10%;
+	height: 90%;
+	font-size: 120%;
+}
+
+.rectangle#home
+{
+	position: absolute;
+	margin-left: 3%;
+	width:15%;
+	height:auto;
+ 	background-color: #4b4949;
+}
+button#ffh
+{
+	background-color: #ccc;
+	border: 1px solid black;
+	width: 99%;
+	height: 80%;
+	font-size: 150%;
+	font-family: cursive;
+}
+

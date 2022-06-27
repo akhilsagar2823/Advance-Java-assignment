@@ -1,0 +1,25 @@
+mysql> SHOW columns FROM party;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| partyId   | varchar(20) | NO   | PRI | NULL    |       |
+| firstName | varchar(20) | NO   |     | NULL    |       |
+| lastName  | varchar(20) | NO   |     | NULL    |       |
+| address   | varchar(60) | YES  |     | NULL    |       |
+| city      | varchar(30) | YES  |     | NULL    |       |
+| zip       | int         | YES  |     | NULL    |       |
+| state     | varchar(30) | YES  |     | NULL    |       |
+| country   | varchar(30) | YES  |     | NULL    |       |
+| phone     | mediumtext  | NO   |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+9 rows in set (0.74 sec)
+
+mysql> SHOW columns FROM userLogin;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| userId   | varchar(20) | NO   | PRI | NULL    |       |
+| password | varchar(20) | NO   |     | NULL    |       |
+| partyId  | varchar(20) | YES  | MUL | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)

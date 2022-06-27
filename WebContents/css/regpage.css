@@ -1,0 +1,88 @@
+@charset "ISO-8859-1";
+body
+{
+	background-color: #e3d3cc;
+	align-content: center;
+}
+p#head
+{
+	text-align: center;
+	font-family: cursive;
+	position: relative;
+	font-size: xxx-large;
+} 
+.rectangle
+{
+	position: absolute; 	
+	margin-top: 5%;
+	margin-left: 13%;
+	margin-right: 13%;
+	margin-bottom: 2%;
+	width:74%;
+	height: auto;
+	background-color: #4b4949;
+	text-align: center;
+}
+.divTable
+{
+    	margin: 2%;
+    	margin-bottom: 0%;
+        display:  table;
+        width: 96%;
+        background-color:#eee;
+        border:1px solid #666666;
+        border-spacing:10px;
+        vertical-align:text-top;
+        font-family: cursive;
+		font-size: large;
+		text-align: center;
+}    
+    .divRow
+    {
+       display:table-row;
+       width:auto;
+	   position: relative;
+    }
+
+    .divCell
+    {	
+        display:table-cell;
+        background-color:#ccc;
+        border: 5px;
+        height: 25px;
+        padding: 0% 1%;
+    }
+
+input
+{	
+    width: 100%;
+    height: 25px;
+    background-color: #eee;
+    font-size: larger;
+    font-family: cursive;
+}
+.divTable#submit
+{
+    	margin: 5%;
+        display:  table;
+		margin-left: 20%;
+		margin-right: 20%;
+		margin-bottom: 2%;
+        width: 60%;
+        background-color:#eee;
+        border:1px solid #666666;
+        border-spacing:10px;
+        vertical-align: middle;
+        font-family: cursive;
+		text-align: center;
+}
+button
+{
+	background-color: #eee;
+	border: 1px solid black;
+	width: 90%;
+	height: auto;
+	font-size: larger;
+	font-family: cursive;
+
+}
